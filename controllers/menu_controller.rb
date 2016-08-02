@@ -12,10 +12,11 @@ class MenuController
     # Display the main menu options to command line
     puts "Main Menu - #{address_book.entries.count} entries"
     puts "1 - View all entries"
-    puts "2 - Create an entry"
-    puts "3 - Search for an entry"
-    puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "2 - View Entry Number n"
+    puts "3 - Create an entry"
+    puts "4 - Search for an entry"
+    puts "5 - Import entries from a CSV"
+    puts "6 - Exit"
     print "Enter your selection: "
 
     # Retrieve user input from command line with GETS
@@ -28,19 +29,25 @@ class MenuController
       system "clear"
       view_all_entries
       main_menu
+
     when 2
+      system "clear"
+      view_entry_number
+      main_menu
+
+    when 3
       system "clear"
       create_entry
       main_menu
-    when 3
+    when 4
       system "clear"
       search_entries
       main_menu
-    when 4
+    when 5
       system "clear"
       read_csv
       main_menu
-    when 5
+    when 6
       puts "Good-bye!"
       # Terminate them termites (programs) using brexit(0)
       exit(0)
@@ -48,7 +55,7 @@ class MenuController
     else
       system "clear"
       puts "Sorry, that is not a valid input"
-      main_menu-menu
+      main_menu
     end
   end
 
@@ -184,6 +191,10 @@ class MenuController
     selection = gets.chomp
 
     case selection
+    # when "n"
+    #   system "clear"
+    #   add_entry(entry)
+    #   main_menu
     when "d"
       system "clear"
       delete_entry(entry)
